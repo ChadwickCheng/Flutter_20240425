@@ -1,0 +1,37 @@
+{
+  "id": "4361859",
+  "name": "kuonji",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6216065",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "5961326",
+      "name": "get",
+      "font_class": "get",
+      "unicode": "ec64",
+      "unicode_decimal": 60516
+    },
+    {
+      "icon_id": "33987164",
+      "name": "下拉",
+      "font_class": "a-xiala2",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "38282754",
+      "name": "004_搜索",
+      "font_class": "a-004_sousuo",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    }
+  ]
+}
