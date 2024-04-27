@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import './Pages/tabs.dart';
 
+/*
+仿咸鱼button
+*/
+
 void main(){
   runApp(MaterialApp(
     theme: ThemeData(
@@ -8,6 +12,5 @@ void main(){
     ),
     title: 'Tutti.fan!',
     home: BaseComponent(),
-    debugShowCheckedModeBanner: false,
   ));
 }

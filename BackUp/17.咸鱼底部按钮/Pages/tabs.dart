@@ -29,8 +29,30 @@ class _BaseComponentState extends State<BaseComponent> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Welcome to Tutti.fan!'),
-        backgroundColor: Colors.pinkAccent,
       ),
+      body: _widgetList[_currentIndex],
+      floatingActionButton: Container(
+        height: 60,
+        width: 60,
+        padding: EdgeInsets.all(2),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.white
+        ),
+        child: FloatingActionButton(
+          backgroundColor: _currentIndex == 2 ? Color.fromARGB(255, 54, 127, 244):Colors.yellow,
+          child: Icon(
+            Icons.add,
+            color: _currentIndex == 2 ? Colors.red : Colors.black
+          ),
+          onPressed: (){
+            setState(() {
+              _currentIndex = 2;
+            });
+          },
+        )
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (v){ // 点击导航项时触发 自动传入一个索引值
@@ -65,7 +87,6 @@ class _BaseComponentState extends State<BaseComponent> {
           ),
         ],
       ),
-      body: _widgetList[_currentIndex],
     );
   }
 }
