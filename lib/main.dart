@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './Widget/dialog.dart';
+import './pages/hero.dart';
 
-void main() {
+void main(){
   runApp(MyApp());
 }
 
@@ -16,53 +16,43 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dialog Demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Dialog Demo'),
-        ),
-        body: DiaDemo(),
-      ),
+      home: AnimeDemo(),
     );
   }
 }
 
-class DiaDemo extends StatefulWidget {
-  const DiaDemo({super.key});
+class AnimeDemo extends StatefulWidget {
+  const AnimeDemo({super.key});
 
   @override
-  State<DiaDemo> createState() => _DiaDemoState();
+  State<AnimeDemo> createState() => _AnimeDemoState();
 }
 
-class _DiaDemoState extends State<DiaDemo> {
-
-  void _myDia() async{
-    var res = await showDialog(
-      barrierDismissible: false, // 点击外部不消失
-      context: context, 
-      builder: (context){
-        return MyDia(
-          title: '自定义标题',
-          content: '自定义内容',
-          onTap: (){
-            print('点击了确定');
-            Navigator.of(context).pop('some value');
-          },
-        );
-      }
-    );
-    print(res);
-  }
+class _AnimeDemoState extends State<AnimeDemo> with SingleTickerProviderStateMixin {
+  /*
+  hero动画 用于在两个页面之间的图片切换
+  */
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(
-          onPressed: ()=>_myDia(), 
-          child: Text('自定义dia')
-        )
-      ],
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Anime Demo'),
+        ),
+        body: 
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HeroPage()));
+              },
+              child: Hero(
+                tag: 'imageHero', // tag需要一致
+                child: Image.asset('images/nero.png'),
+              ),
+            ),
+          )
+      ),
     );
   }
 }
